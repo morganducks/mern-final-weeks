@@ -13,7 +13,22 @@ const viewProduct = (req, res) => {
         .catch(err =>res.json(err));
     }
 
+    const viewOneProduct = (req, res) => {
+        Product.find(req.body) 
+        .then(viewOneProduct =>res.json(viewOneProduct))
+        .catch(err =>res.json(err));
+    }
+
+    const viewNewProduct = (req, res) => {
+        Product.find(req.body) 
+        .then(viewNewProduct =>res.json(viewNewProduct))
+        .catch(err =>res.json(err));
+    }
+
     module.exports = {
         viewProduct,
         createProduct,
+        viewOneProduct,
+        viewNewProduct,
+
 }
