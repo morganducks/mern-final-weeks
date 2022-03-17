@@ -1,3 +1,35 @@
+.deleteButton {
+  margin-top: 30px;
+}
+
+label {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.productRow {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1 1;
+  width: 15%;
+  justify-content: center;
+  padding: 20px;
+  margin: 0px auto 20px auto;
+  background-color: #e5e5e5;
+}
+
+.listContainer {
+
+}
+
+.listStyles {
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #e5e5e5;
+  width: 150px;
+}
+
 .App {
   text-align: center;
 }

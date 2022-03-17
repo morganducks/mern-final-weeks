@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Products = (props) => {
 
+    const { allProducts, setAllProducts } = props;
     const [productName, setProductName] = useState("");
-    const [productPrice,setProductPrice] = useState("");
-    const [productDesc,setProductDesc] = useState("");
+    const [productPrice, setProductPrice] = useState("");
+    const [productDesc, setProductDesc] = useState("");
 
     const handleProductName = (e) => {
         setProductName(e.target.value);
@@ -18,59 +20,67 @@ const Products = (props) => {
     const handleProductDesc = (e) => {
         setProductDesc(e.target.value);
     }
-    
-const submitHandler = (e) => {
-    e.preventDefault();
 
-    axios.post("http://localhost:8000/api/product",{
-        productName,
-        productPrice,
-        productDesc,
-    })
+    const submitHandler = (e) => {
+       
 
-    .then((res)=>{
-        console.log(res);
-        console.log(res.data);
-    
-    setProductName("");
-    setProductPrice("");
-    setProductDesc("");
-    })
-    .catch((err)=>{
+        axios.post("http://localhost:8000/api/product", {
+            productName,
+            productPrice,
+            productDesc,
+        })
 
-        console.log(err);
-})
-    
+            .then((res) => {
+                console.log(res);
+                console.log(res.data);
+
+                setProductName("");
+                setProductPrice("");
+                setProductDesc("");
+            })
+            .catch((err) => {
+
+                console.log(err);
+            })
+            e.preventDefault();
     }
 
-return(
-    <form onSubmit={submitHandler}>
-    <div>
-        <label htmlFor="Name">Product Name</label>
-        <input type="text" name="Name" onChange={ (e) => {
-            handleProductName(e);
-        } } 
-            value={productName}
+    return (
+        <form onSubmit={submitHandler}>
+            <div
+            style={{marginTop: "40px"}}>
+                <h1>Add a product</h1>
+                <div className="productRow">
+                <label htmlFor="Name">Product Name</label>
+                <input type="text" name="Name" onChange={(e) => {
+                    handleProductName(e);
+                }}
+                    value={productName}
 
-        />
+                />
+                </div>
+                <div className="productRow">
                 <label htmlFor="Price">Product Price</label>
-        <input type="number" name="Price" onChange={ (e) => {
-            handleProductPrice(e);
+                <input type="text" name="Price" onChange={(e) => {
+                    handleProductPrice(e);
 
-        } } 
-        value={productPrice}
+                }}
+                    value={productPrice}
 
-        />
+                />
+                </div>
+                <div className="productRow">
                 <label htmlFor="description">Product Description</label>
-        <input type="text" name="description" onChange={ (e) => {
-            handleProductDesc(e);
-        } } 
-        value={productDesc}
-        />
-        <button>Add box</button>
-    </div>
-    </form>
-)
+                <input type="text" name="description" onChange={(e) => {
+                    handleProductDesc(e);
+                }}
+                    value={productDesc}
+                />
+                </div>
+                <button>Add product</button>
+            </div>
+        </form>
+    )
 
 
 }
