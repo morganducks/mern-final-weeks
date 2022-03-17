@@ -22,7 +22,7 @@ const Products = (props) => {
     }
 
     const submitHandler = (e) => {
-       
+
 
         axios.post("http://localhost:8000/api/product", {
             productName,
