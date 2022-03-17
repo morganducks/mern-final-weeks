@@ -25,6 +25,7 @@ const viewProduct = (req, res) => {
     }
 
     const deleteProduct = (req, res) => {
+        console.log("deleting...")
         Product.delete({_id:req.params.id})
         .then(deleteProduct =>res.json(deleteProduct))
         .catch(err =>res.json(err));
