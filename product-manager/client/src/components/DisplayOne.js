@@ -27,6 +27,7 @@ const DisplayOne = (props) => {
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
+                // setAllProducts(allProducts.filter(product => product._id))
             })
             .catch((err) => console.log(err));
     }
