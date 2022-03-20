@@ -19,7 +19,7 @@ const viewProduct = (req, res) => {
     }
 
     const updateProduct = (req, res) => {
-        Product.updateOne(req.body) 
+        Product.findOneAndUpdate(req.body) 
         .then(updateProduct =>res.json(updateProduct))
         .catch(err =>res.json(err));
     }
