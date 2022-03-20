@@ -25,21 +25,25 @@ const DisplayAll = (props) => {
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
-                setAllProducts(allProducts.filter(product => product._id ==! idFromBelow))
+                setAllProducts(allProducts.filter(product => product._id !== idFromBelow))
             })
             .catch((err) => console.log(err));
     }
 
     return (
-        <div>
-            <h2 style={{marginTop: "50px"}}>Product List</h2>
+        <div style={{marginTop: "40px", marginBottom: "40px"}}>
+            <h2 style={{ marginTop: "50px" }}>Product List</h2>
 
             {
                 allProducts.map((product, index) => {
                     return (
-                        <div className="listContainer" key={product._id}>
-                            <p className="listStyles"><Link to={`/product/${product._id}`}>{product.productName}</Link></p>
-                        <button className="deleteButton" onClick={()=>deleteProduct(product._id)}>Delete</button>
+                        <div className="productBackground" key={index}>
+                            <div className="listContainer" key={product._id}>
+                                <p className="listStyles"><Link to={`/product/${product._id}`}>{product.productName}</Link></p>
+                                <button className="deleteButton" onClick={() => deleteProduct(product._id)}>Delete</button>
+                            </div>
+                            <div className="editLink"><Link to={`/product/edit/${product._id}`}>Edit</Link>
+                            </div>
                         </div>
                     )
                 })

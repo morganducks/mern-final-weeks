@@ -8,6 +8,7 @@ const Products = (props) => {
     const [productName, setProductName] = useState("");
     const [productPrice, setProductPrice] = useState("");
     const [productDesc, setProductDesc] = useState("");
+    const navigate = useNavigate();
 
     const handleProductName = (e) => {
         setProductName(e.target.value);
@@ -23,7 +24,7 @@ const Products = (props) => {
 
     const submitHandler = (e) => {
 
-
+        e.preventDefault();
         axios.post("http://localhost:8000/api/product", {
             productName,
             productPrice,
@@ -33,22 +34,23 @@ const Products = (props) => {
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
-
                 setProductName("");
                 setProductPrice("");
                 setProductDesc("");
+                
             })
             .catch((err) => {
 
                 console.log(err);
             })
-            e.preventDefault();
+            navigate("/product");
+           
     }
 
     return (
         <form onSubmit={submitHandler}>
             <div
-            style={{marginTop: "40px"}}>
+            style={{marginTop: "40px", marginBottom: "40px"}}>
                 <h1>Add a product</h1>
                 <div className="productRow">
                 <label htmlFor="Name">Product Name</label>

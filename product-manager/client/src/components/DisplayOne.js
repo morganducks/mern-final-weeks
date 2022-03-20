@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom"
+import { Link, useParams, useNavigate, Navigate } from "react-router-dom";
 
 const DisplayOne = (props) => {
 
     const { id } = useParams();
     const [oneProduct, setOneProduct] = useState({});
-
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -27,7 +26,7 @@ const DisplayOne = (props) => {
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
-                // setAllProducts(allProducts.filter(product => product._id))
+                navigate("/product")
             })
             .catch((err) => console.log(err));
     }

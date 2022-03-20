@@ -18,14 +18,15 @@ const viewProduct = (req, res) => {
         .catch(err =>res.json(err));
     }
 
-    const viewNewProduct = (req, res) => {
-        Product.find(req.body) 
-        .then(viewNewProduct =>res.json(viewNewProduct))
+    const updateProduct = (req, res) => {
+        Product.updateOne(req.body) 
+        .then(updateProduct =>res.json(updateProduct))
         .catch(err =>res.json(err));
     }
 
     const deleteProduct = (req, res) => {
         console.log("deleting...")
+        //use html reuqests in the controller i.e. deleteMany, deleteOne 
         Product.deleteOne({_id:req.params.id})
         .then(deleteProduct =>res.json(deleteProduct))
         .catch(err =>res.json(err));
@@ -35,6 +36,6 @@ const viewProduct = (req, res) => {
         viewProduct,
         createProduct,
         viewOneProduct,
-        viewNewProduct,
+        updateProduct,
         deleteProduct,
 }

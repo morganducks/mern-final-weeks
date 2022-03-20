@@ -1,5 +1,17 @@
+.productBackground {
+  width: 200px;
+  background-color: #e5e5e5;
+  margin: auto;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.editLink {
+  margin-bottom: 30px;
+}
+
 .deleteButton {
-  margin-top: 30px;
+  margin: 10px 0 20px;
 }
 
 label {
@@ -15,7 +27,7 @@ label {
   width: 15%;
   justify-content: center;
   padding: 20px;
-  margin: 0px auto 20px auto;
+  margin: 0px auto 10px auto;
   background-color: #e5e5e5;
 }
 
@@ -26,8 +38,9 @@ label {
 .listStyles {
   margin: 10px auto;
   padding: 10px;
-  background-color: #e5e5e5;
   width: 150px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .App {
