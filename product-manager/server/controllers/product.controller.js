@@ -20,7 +20,7 @@ const viewProduct = (req, res) => {
 
     const updateProduct = (req, res) => {
         console.log("editing...")
-        Product.findOneAndUpdate({_id: request.params.id}, req.body, {new:true})
+        Product.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
         .then(updatedProduct =>res.json(updatedProduct))
         .catch(err =>res.json(err));
     }
