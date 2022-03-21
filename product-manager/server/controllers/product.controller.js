@@ -19,8 +19,9 @@ const viewProduct = (req, res) => {
     }
 
     const updateProduct = (req, res) => {
-        Product.findOneAndUpdate(req.body) 
-        .then(updateProduct =>res.json(updateProduct))
+        console.log("editing...")
+        Product.findOneAndUpdate({_id: request.params.id}, req.body, {new:true})
+        .then(updatedProduct =>res.json(updatedProduct))
         .catch(err =>res.json(err));
     }
 
