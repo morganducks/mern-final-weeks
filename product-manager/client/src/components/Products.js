@@ -25,61 +25,36 @@ const Products = (props) => {
     const submitHandler = (e) => {
 
         e.preventDefault();
-        axios.post("http://localhost:8000/api/product", {
-            productName,
-            productPrice,
-            productDesc,
+        axios.post("http://localhost:8000/api/authors", {
+            authorName,
         })
-
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
-                setProductName("");
-                setProductPrice("");
-                setProductDesc("");
-                
+                setAuthorName("");
+
             })
             .catch((err) => {
 
                 console.log(err);
             })
-            navigate("/product");
-           
+        navigate("/product");
+
     }
 
     return (
         <form onSubmit={submitHandler}>
             <div
-            style={{marginTop: "40px", marginBottom: "40px"}}>
-                <h1>Add a product</h1>
+                style={{ marginTop: "40px", marginBottom: "40px" }}>
+                <h1>Add an Author</h1>
                 <div className="productRow">
-                <label htmlFor="Name">Product Name</label>
-                <input type="text" name="Name" onChange={(e) => {
-                    handleProductName(e);
-                }}
-                    value={productName}
+                    <label htmlFor="Name">Product Name</label>
+                    <input type="text" name="Name" onChange={(e) => setAuthorName(e.target.value)}
+                        value={productName}
 
-                />
+                    />
                 </div>
-                <div className="productRow">
-                <label htmlFor="Price">Product Price</label>
-                <input type="text" name="Price" onChange={(e) => {
-                    handleProductPrice(e);
-
-                }}
-                    value={productPrice}
-
-                />
-                </div>
-                <div className="productRow">
-                <label htmlFor="description">Product Description</label>
-                <input type="text" name="description" onChange={(e) => {
-                    handleProductDesc(e);
-                }}
-                    value={productDesc}
-                />
-                </div>
-                <button>Add product</button>
+                <button>Add author</button>
             </div>
         </form>
     )
