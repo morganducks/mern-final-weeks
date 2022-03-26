@@ -25,7 +25,6 @@ const EditAuthor = (props) => {
     }, [id])
 
     const submitHandler = (e) => {
-
         e.preventDefault();
         axios.put(`http://localhost:8000/api/authors/${id}`, {
             authorName,
