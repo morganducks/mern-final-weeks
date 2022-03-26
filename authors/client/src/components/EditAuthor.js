@@ -33,7 +33,7 @@ const EditAuthor = (props) => {
                 console.log(res);
                 console.log(res.data);
                 console.log("edited")
-                navigate("/authors")
+                navigate("/")
             })
             .catch((err) => {
                 console.log(err)
